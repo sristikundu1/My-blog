@@ -1,7 +1,7 @@
 import React from 'react';
 
 const ReadBlogList = ({blog}) => {
-    const {cover,title,author,author_img:authorImg,posted_date:postedDate,reading_time:readingTime,hashtags} = blog;
+    const {title} = blog;
     return (
         <div>
 

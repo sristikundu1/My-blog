@@ -16,7 +16,7 @@ const Blog = ({ blog, handleMarkedBlog, handleMarkAsReadAndRemove }) => {
   } = blog;
 
   return (
-    <div className="mb-20">
+    <div className="mb-6 md:mb-20">
       <img
         className="w-full h-auto object-contain"
         src={cover}
@@ -24,17 +24,17 @@ const Blog = ({ blog, handleMarkedBlog, handleMarkAsReadAndRemove }) => {
       />
       <div className="flex justify-between items-center py-2">
         <div className="flex justify-center items-center gap-2">
-          <img className="w-14 h-14" src={authorImg} alt="author_Img" />
+          <img className="w-8 h-8 md:w-14 md:h-14" src={authorImg} alt="author_Img" />
           <div>
-            <h1 className="text-2xl font-bold text-left">{author}</h1>
+            <h1 className="text-xl md:text-2xl font-bold text-left">{author}</h1>
             <p className="text-[rgba(17,17,17,0.6)] font-semibold text-left">
               {postedDate}
             </p>
           </div>
         </div>
         <div>
-          <p className="text-[rgba(17,17,17,0.6)] text-[20px] font-medium leading-6 text-right">
-            {readingTime} min read{" "}
+          <p className="text-[rgba(17,17,17,0.6)] text-lg md:text-[20px] font-medium leading-6 text-right">
+            {readingTime} min read
             <FontAwesomeIcon
               onClick={() => handleMarkedBlog(blog)}
               icon={faBookmark}
@@ -42,7 +42,7 @@ const Blog = ({ blog, handleMarkedBlog, handleMarkAsReadAndRemove }) => {
           </p>
         </div>
       </div>
-      <h2 className="text-3xl font-bold leading-[160%] text-left text-[#111111]">
+      <h2 className="text-2xl md:text-3xl font-bold leading-[160%] text-left text-[#111111]">
         {title}
       </h2>
       <div className="py-2">

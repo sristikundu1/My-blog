@@ -48,9 +48,9 @@ function App() {
       <Navbar />
 
       <div className="w-9/12 mx-auto ">
-        <div className="grid grid-cols-4 gap-4 ">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 ">
           {/* left side blogs  */}
-          <div className="col-span-3">
+          <div className="md:col-span-3">
             <Suspense fallback={<h2>Blogs Data are loading ........</h2>}>
               <Blogs
                 blogPromises={blogPromises}
@@ -61,17 +61,20 @@ function App() {
           </div>
 
           {/* right side selected blogs  */}
-          <div className="col-span-1 py-6">
+          <div className="md:col-span-1 py-6">
             <h1 className="border border-[#6047EC] rounded-lg bg-[#6047EC]/10 text-[#6047EC] text-lg mb-3 font-bold py-5 px-6">
               Spent time on read : <span>{totalReadingTime}</span> min
             </h1>
 
             <div className="rounded-lg bg-[#111111]/5 p-5">
-              <h1 className="text-[#111111] text-lg font-bold text-left">
+              <h1 className="text-[#111111] text-xl font-bold text-left">
                 Bookmarked Blogs : <span>{bookmarkedBlogs.length}</span>
               </h1>
+
               {bookmarkedBlogs.map((blog) => (
+
                 <ReadBlogList key={blog.id} blog={blog}></ReadBlogList>
+
               ))}
             </div>
           </div>
