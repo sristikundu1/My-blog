@@ -3,13 +3,18 @@ import "./App.css";
 import Navbar from "./components/Navbar/Navbar";
 import Blogs from "./components/Blogs/Blogs";
 import ReadBlogList from "./components/ReadBlogList/ReadBlogList";
-import { addBlogsToLocalstorage, getBlogFromLocalstorage } from "./components/utilites/Localstorage";
+import {
+  addBlogsToLocalstorage,
+  getBlogFromLocalstorage,
+  removeBlogFromLocalstorage,
+} from "./components/utilites/Localstorage";
 
 // fetch blog json data
 const blogPromises = fetch("blogs.json").then((res) => res.json());
 
 function App() {
   const [readBlog, setReadBlog] = useState([]);
+  const [totalReadingTime, setTotalReadingTime] = useState(0);
 
   // click bookmark button
   const handleMarkedBlog = (blog) => {
@@ -20,19 +25,23 @@ function App() {
     addBlogsToLocalstorage(blog.id);
   };
 
-
-   //  Get bookmarked IDs from localStorage
+  //  Get bookmarked IDs from localStorage
   const storedBlogsIds = getBlogFromLocalstorage();
 
   // Filter blogs to show only bookmarked blogs
-  const bookmarkedBlogs = readBlog.filter((blog) => storedBlogsIds.includes(blog.id));
+  const bookmarkedBlogs = readBlog.filter((blog) =>
+    storedBlogsIds.includes(blog.id),
+  );
 
-  // count total reading time
-  let totalReadingTime = 0;
+  // remove from bookmar and show the readtime 
+  const handleMarkAsReadAndRemove = (time, id) => {
+    setTotalReadingTime(totalReadingTime + time);
 
-  for (const blog of bookmarkedBlogs) {
-    totalReadingTime += blog.reading_time;
-  }
+    // remove from ui and localstorage 
+    const remainingBlog = readBlog.filter((blog) => blog.id != id);
+    setReadBlog(remainingBlog);
+    removeBlogFromLocalstorage(id);
+  };
 
   return (
     <>
@@ -46,6 +55,7 @@ function App() {
               <Blogs
                 blogPromises={blogPromises}
                 handleMarkedBlog={handleMarkedBlog}
+                handleMarkAsReadAndRemove={handleMarkAsReadAndRemove}
               ></Blogs>
             </Suspense>
           </div>
