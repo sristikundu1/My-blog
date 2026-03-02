@@ -1,7 +1,7 @@
 import React, { use } from "react";
 import Blog from "../Blog/Blog";
 
-const Blogs = ({ blogPromises,handleMarkedBlog,handleMarkAsReadAndRemove }) => {
+const Blogs = ({ blogPromises,handleMarkedBlog,handleMarkAsReadAndRemove,readBlog }) => {
   // Reads the value of a Promise
   const blogs = use(blogPromises);
 
@@ -13,6 +13,7 @@ const Blogs = ({ blogPromises,handleMarkedBlog,handleMarkAsReadAndRemove }) => {
           blog={blog}
           handleMarkedBlog={handleMarkedBlog}
           handleMarkAsReadAndRemove={handleMarkAsReadAndRemove}
+          isBookmarked={readBlog.some(b => b.id === blog.id)}
         ></Blog>
       ))}
     </div>

@@ -33,7 +33,9 @@ function App() {
     storedBlogsIds.includes(blog.id),
   );
 
-  // remove from bookmar and show the readtime 
+  console.log(bookmarkedBlogs.id)
+
+  // remove from bookmark and show the readtime 
   const handleMarkAsReadAndRemove = (time, id) => {
     setTotalReadingTime(totalReadingTime + time);
 
@@ -56,6 +58,7 @@ function App() {
                 blogPromises={blogPromises}
                 handleMarkedBlog={handleMarkedBlog}
                 handleMarkAsReadAndRemove={handleMarkAsReadAndRemove}
+                readBlog={readBlog}
               ></Blogs>
             </Suspense>
           </div>

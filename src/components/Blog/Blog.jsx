@@ -1,8 +1,9 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBookmark } from "@fortawesome/free-regular-svg-icons";
+import { faBookmark as solidBookmark } from "@fortawesome/free-solid-svg-icons";
+import { faBookmark as regularBookmark } from "@fortawesome/free-regular-svg-icons";
 
-const Blog = ({ blog, handleMarkedBlog, handleMarkAsReadAndRemove }) => {
+const Blog = ({ blog, handleMarkedBlog, handleMarkAsReadAndRemove, isBookmarked }) => {
   // destructure the data
   const {
     id,
@@ -37,7 +38,7 @@ const Blog = ({ blog, handleMarkedBlog, handleMarkAsReadAndRemove }) => {
             {readingTime} min read
             <FontAwesomeIcon
               onClick={() => handleMarkedBlog(blog)}
-              icon={faBookmark}
+              icon={isBookmarked ? solidBookmark : regularBookmark}
             />
           </p>
         </div>
