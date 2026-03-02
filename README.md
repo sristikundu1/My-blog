@@ -1,6 +1,4 @@
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<!-- This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
 
@@ -13,4 +11,43 @@ The React Compiler is not enabled on this template because of its impact on dev 
 
 ## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project. -->
+
+# 📚 My Knowledge Cafe
+
+A simple blog website where users can bookmark blogs and track reading time.
+
+---
+
+## 🚀 Live Link
+
+🔗 Live Site: https://my-knowledge-cafe-blog-site.netlify.app/
+
+---
+
+## ✨ Features
+
+- 📌 Bookmark blogs
+- ⏱️ Track total reading time
+- 🗑️ Remove bookmarked blogs
+- 💾 Data stored in LocalStorage
+- ⚡ Fast loading with React Suspense
+- 🎨 Responsive design using Tailwind CSS
+
+---
+
+## 🛠️ Technologies Used
+
+- React.js
+- JavaScript (ES6)
+- Tailwind CSS
+- Daisy UI
+- Font Awesome Icons
+- LocalStorage API
+
+## 🧠 What I Learned
+
+- How to use React state properly
+- How to store and retrieve data from localStorage
+- How to pass props between components
+- How React re-renders when state changes
